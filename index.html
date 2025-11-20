@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Intro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      color: #fff;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #introBtn {
+      font-size: 36px;
+      padding: 28px 55px;
+      border-radius: 14px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ff0000, #ff7700);
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.7);
+      transition: 0.2s;
+    }
+
+    #introBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 40px rgba(255, 50, 0, 0.9);
+    }
+
+    #gifContainer {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    #gifContainer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Başlangıç ekranı -->
+  <button id="introBtn">BAŞLA</button>
+
+  <!-- GIF ekranı -->
+  <div id="gifContainer">
+    <img src="intro.gif" alt="Intro GIF">
+  </div>
+
+  <audio id="introAudio" src="intro.mp3"></audio>
+
+  <script>
+    const btn = document.getElementById("introBtn");
+    const gif = document.getElementById("gifContainer");
+    const audio = document.getElementById("introAudio");
+
+    btn.addEventListener("click", () => {
+      // Ses
+      audio.play();
+
+      // Butonu kaldır, GIF'i göster
+      btn.style.display = "none";
+      gif.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
